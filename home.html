@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        input[type=text], select {
+          width: 50%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+          width: 100%;
+          background-color: black;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          
+        }
+
+        input[type=button] {
+          width: 100%;
+          background-color: black;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          
+        }
+     
+        
+        div {
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          padding: 10px;
+        }
+
+        .center{
+            margin: auto;
+            width: 50%;
+            border: 3px solid black;
+            padding: 10px;
+        }
+
+        h1{
+            text-align: center;
+        }
+        </style>
+<body>
+
+<div class="center">
+
+<h1>Food API</h1>
+
+<form action="/action_page.php" form id="myForm">
+  <label for="state">State:</label>
+  <input type="text" id="fname" name="fname" value="New Jersey"><br><br>
+  <label for="city">City:</label>
+  <input type="text" id="lname" name="lname" value="Glassboro"><br><br>
+  </form>
+
+  <label for="food">Choose Type:</label>
+    <form id="link">
+        <select multiple="multiple">
+            <option value="http://localhost/breakfast.php">Breakfast</option>
+            <option value="http://localhost/lunch.php">Lunch</option>
+            <option value="http://localhost/dinner.php">Dinner</option>
+        </select>
+        <br>
+      
+        <input class="SubmitButton" type="submit" name="SUBMITBUTTON" value="Click Here"/>
+        <input type="button" onclick="myFunction()" value="Reset">
+
+    </form>
+</div>
+<script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script>
+    $('#link').on('submit', function (e) {
+        e.preventDefault();
+        var $form = $(this),
+                $select = $form.find('select'),
+                links = $select.val();
+        if (links.length > 0) {
+            for (i in links) {
+                link = links[i];
+                window.open(link);
+            }
+        }
+    });
+    function myFunction() {
+  document.getElementById("myForm").reset();
+}
+ 
+
+</script>
+</body>
+</html>
